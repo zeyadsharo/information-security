@@ -37,33 +37,32 @@ namespace Information_Security
         {
 
             Console.Write("Enter your ciphertext : ");
-            string cipher2 = Console.ReadLine();
-            Console.Write("Enter your dipth : ");
-            int dipth2 = Convert.ToInt32(Console.ReadLine());
-            string plain2 = "";
-            int length_of_line = cipher2.Length / dipth2;
-            int rimainder = (cipher2.Length) - (length_of_line * dipth2);
+            string cipher = Console.ReadLine();
+            Console.Write("Enter your line : ");
+            int line = Convert.ToInt32(Console.ReadLine());
+            string plaintext = "";
+            int length_of_line = cipher.Length / line;
+            int rimainder = (cipher.Length) - (length_of_line * line);
 
             for (int i = 0; i < length_of_line; i++)
             {
-                for (int j = i; j < cipher2.Length; j += length_of_line)
+                for (int j = i; j < cipher.Length; j += length_of_line)
                 {
-                    plain2 += cipher2[j];
-
+                    plaintext += cipher[j];
                     if (rimainder > 0)
                     {
                         j += 1;
                         rimainder--;
                     }
                 }
-                rimainder = (cipher2.Length) - (length_of_line * dipth2);
+                rimainder = (cipher.Length) - (length_of_line * line);
             }
             for (int i = 0; i < rimainder; i++)
             {
-                plain2 += cipher2[length_of_line + i];
-                length_of_line *= 2;
+                plaintext += cipher[length_of_line + i];
+               // length_of_line *= 2;
             }
-            Console.WriteLine("plant : {0}", plain2);
+            Console.WriteLine("plant : {0}", plaintext);
         }
 
     }

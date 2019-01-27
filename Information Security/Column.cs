@@ -57,6 +57,8 @@ namespace Information_Security
             {
                 for (int j = 0; j < col2; j++)
                 {
+
+
                     Console.Write("{0} ", m_of_char2[i, j]);
                 }
                 Console.WriteLine();
