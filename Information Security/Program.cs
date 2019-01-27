@@ -8,9 +8,9 @@ namespace Information_Security
     {
         static void Main(string[] args)
         {
-            // test t = new test();
-           Column c = new Column();
-            c.decryption(); 
+            RailFence r = new RailFence();
+            r.incyption();
+           
             Console.ReadKey();
         }
     }

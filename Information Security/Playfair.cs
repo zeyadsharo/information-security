@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Information_Security
 {
-    class test
+    class Playfair
     {
-        public test()
+        public void encryption()
         {
-            
 
-                    Console.WriteLine();
         }
     }
 }

@@ -13,12 +13,13 @@ namespace Information_Security
         {
             Console.Write("Enter your plaintext : ");
             string plain = Console.ReadLine();
-            Console.Write("Enter your key : "); string key = Console.ReadLine();
+            Console.Write("Enter your key : ");
+            string key = Console.ReadLine();
             int col = key.Length;
             int row = plain.Length / key.Length;
             int reminder = plain.Length % key.Length;
             if (reminder > 0)
-                row = row + 1;
+                 row = row + 1;
             char[,] m_of_char = new char[row, col];
             int index = 0;
             //put plaintext to matrix

@@ -42,7 +42,7 @@ namespace Information_Security
             ciphertext = new char[plantext.Length];
             for (int i = 0; i < plantext.Length; i++)
             {
-                ciphertext[i] = Convert.ToChar(((plantext[i] + key[i]) % 26) + 65);
+                ciphertext[i] = Convert.ToChar(((plantext[i] + key[i]) % 26) + 97);
             }
             Console.Write("ciphertext: ");
             for (int i = 0; i < ciphertext.Length; i++)
@@ -58,7 +58,7 @@ namespace Information_Security
             plan = new char[ciphertext.Length];
             for (int i = 0; i < ciphertext.Length; i++)
             {
-                plan[i] = Convert.ToChar((((ciphertext[i] - key[i]) + 26) % 26)+65);
+                plan[i] = Convert.ToChar((((ciphertext[i] - key[i]) + 26) % 26)+97);
             }
             Console.WriteLine();
             Console.Write("plan text: ");
