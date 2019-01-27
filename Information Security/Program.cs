@@ -8,8 +8,9 @@ namespace Information_Security
     {
         static void Main(string[] args)
         {
-            Column z1 = new Column();
-            
+            // test t = new test();
+           Column c = new Column();
+            c.decryption(); 
             Console.ReadKey();
         }
     }

@@ -40,7 +40,7 @@ namespace Information_Security
 
             for (int i = 0; i < col; i++)
             {
-                Console.Write("{0}  ", key[i]);
+                Console.Write("{0} ", key[i]);
 
             }
             Console.WriteLine();
@@ -53,6 +53,7 @@ namespace Information_Security
                 }
                 Console.WriteLine();
             }
+
             int m = 0;
             char[] charx = key.ToCharArray();
             Array.Sort(charx);
@@ -66,6 +67,76 @@ namespace Information_Security
                 }
                 m++;
             }
+
+        }
+        public void decryption()
+        {
+            Console.WriteLine("decryption cipher................................");
+            Console.Write("Enter your cipher : ");
+            string cipher = Console.ReadLine();
+            Console.Write("Enter your key : ");
+            string key = Console.ReadLine();
+
+            int col = key.Length;
+            int row = cipher.Length / key.Length;
+            int remin2 = cipher.Length % key.Length;
+
+            if (remin2 > 0)
+                row = row + 1;
+
+            char[,] m_of_char2 = new char[row, col];
+            int index = 0;
+
+
+            for (int i = 0; i < col + 1; i++)
+            {
+                for (int j = 0; j < key.Length; j++)
+                {
+                    if (i == key[j] - 48)
+                    {
+                        for (int ii = 0; ii < row; ii++)
+                        {
+                            m_of_char2[ii, j] = cipher[index];
+                            index++;
+                        }
+                    }
+                }
+            }
+            //print matrix of char
+
+            for (int i = 0; i < col; i++)
+            {
+                Console.Write("{0} ", key[i]);
+
+            }
+            Console.WriteLine();
+            Console.WriteLine("------------------------");
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < col; j++)
+                {
+                    Console.Write("{0} ", m_of_char2[i, j]);
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+
+            string plain2 = "";
+
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < col; j++)
+                {
+                    plain2 += m_of_char2[i, j];
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("your plain text is : {0} ", plain2);
+            Console.ReadLine();
+
+
+
+
 
         }
     }
