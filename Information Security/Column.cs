@@ -8,75 +8,65 @@ namespace Information_Security
 {
     class Column
     {
+
         public Column()
         {
-            Console.WriteLine("decryption cipher................................");
-            Console.Write("Enter your cipher : ");
-            string cipher2 = Console.ReadLine();
-            Console.Write("Enter your key : ");
-            string key2 = Console.ReadLine();
-
-            int col2 = key2.Length;
-            int row2 = cipher2.Length / key2.Length;
-            int remin2 = cipher2.Length % key2.Length;
-
-            if (remin2 > 0)
-                row2 = row2 + 1;
-
-            char[,] m_of_char2 = new char[row2, col2];
-            int index2 = 0;
-
-
-            for (int i = 0; i < col2 + 1; i++)
+            Console.Write("Enter your plaintext : ");
+            string plain = Console.ReadLine();
+            Console.Write("Enter your key : "); string key = Console.ReadLine();
+            int col = key.Length;
+            int row = plain.Length / key.Length;
+            int reminder = plain.Length % key.Length;
+            if (reminder > 0)
+                row = row + 1;
+            char[,] m_of_char = new char[row, col];
+            int index = 0;
+            //put plaintext to matrix
+            Console.WriteLine();
+            for (int i = 0; i < row; i++)
             {
-                for (int j = 0; j < key2.Length; j++)
+                for (int j = 0; j < col; j++)
                 {
-                    if (i == key2[j] - 48)
-                    {
-                        for (int ii = 0; ii < row2; ii++)
-                        {
-                            m_of_char2[ii, j] = cipher2[index2];
-                            index2++;
-                        }
-                    }
+                    if (index < plain.Length)
+                        m_of_char[i, j] = plain[index];
+                    else
+                        m_of_char[i, j] = 'x';
+
+                    index++;
                 }
+
             }
-
-
-
             //print matrix of char
 
-            //for (int i = 0; i < col; i++)
-            //{
-            //    Console.Write("{0} ", key[i]);
-
-            //}
-            Console.WriteLine();
-            Console.WriteLine("------------------------");
-            for (int i = 0; i < row2; i++)
+            for (int i = 0; i < col; i++)
             {
-                for (int j = 0; j < col2; j++)
+                Console.Write("{0}  ", key[i]);
+
+            }
+            Console.WriteLine();
+            Console.WriteLine("------------------");
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < col; j++)
                 {
-
-
-                    Console.Write("{0} ", m_of_char2[i, j]);
+                    Console.Write("{0} ", m_of_char[i, j]);
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine();
+            int m = 0;
+            char[] charx = key.ToCharArray();
+            Array.Sort(charx);
 
-            string plain2 = "";
-
-            for (int i = 0; i < row2; i++)
+            Console.Write("the cipher text is: ");
+            while (m < col)
             {
-                for (int j = 0; j < col2; j++)
+                for (int i = 0; i < row; i++)
                 {
-                    plain2 += m_of_char2[i, j];
+                    Console.Write("{0} ", m_of_char[i, key.IndexOf(charx[m])]);
                 }
+                m++;
             }
-            Console.WriteLine();
-            Console.WriteLine("your plain text is : {0} ", plain2);
-            Console.ReadLine();
+
         }
     }
 }

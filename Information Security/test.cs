@@ -16,7 +16,7 @@ namespace Information_Security
             Console.Write("enter the line: ");
             int line = int.Parse(Console.ReadLine());
             
-            Console.WriteLine(plain);
+            Console.WriteLine();
         }
     }
 }
